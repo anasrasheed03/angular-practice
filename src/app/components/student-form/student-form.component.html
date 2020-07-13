@@ -1,0 +1,83 @@
+<button type="button" class="btn btn-primary" *ngIf="!viewAddStudentForm" (click)="addStudent()">Add New Student</button>
+<form [formGroup]="studentForm" *ngIf="viewAddStudentForm">
+  <div class="row">
+  <div class="col-6 form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" name="firstName" formControlName="firstName">
+    <div *ngIf="studentForm.controls.firstName.invalid && (studentForm.controls.firstName.dirty || studentForm.controls.firstName.touched)">
+      <span *ngIf="studentForm.controls.firstName.errors?.required">First Name is Required</span>
+      <span *ngIf="studentForm.controls.firstName.errors?.minLength">Minimum 2 character of First Name is Required</span>
+      <span *ngIf="studentForm.controls.firstName.errors?.maxLength">Maximum 50 character is allowed in fist name</span>
+    </div>  
+  </div>
+  <div class="col-6 form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" name="lastName" formControlName="lastName">
+    <div *ngIf="studentForm.controls.lastName.invalid && studentForm.controls.lastName.touched || studentForm.controls.lastName.dirty">
+      <span *ngIf="studentForm.controls.lastName.errors?.required">Last Name is Required</span>
+      <span *ngIf="studentForm.controls.lastName.errors?.minLength">Minimum 2 character of Last Name is Required</span>
+      <span *ngIf="studentForm.controls.lastName.errors?.maxLength">Maximum 50 character is allowed in Last Name</span>
+    </div> 
+  </div>
+  <div class="col-6 form-group">
+    <label for="age">Age</label>
+    <input type="number" class="form-control" id="age" placeholder="Enter age"
+    name="age" formControlName="age">
+    <div *ngIf="studentForm.controls.age.invalid && studentForm.controls.age.touched || studentForm.controls.age.dirty">
+      <span *ngIf="studentForm.controls.age.errors?.required">Age is Required</span>
+      <span *ngIf="studentForm.controls.age.errors?.min">Minimum 18 year of age is required</span>
+      <span *ngIf="studentForm.controls.age.errors?.max">Maximum 50 year of age is</span>
+    </div> 
+    </div>
+  <div class="col-6 form-group">
+    <label for="dept">Department</label>
+    <input type="text" class="form-control" id="dept" placeholder="Enter Department"
+    name="dept" formControlName="dept">
+    <div *ngIf="studentForm.controls.dept.invalid && studentForm.controls.dept.touched || studentForm.controls.dept.dirty">
+      <span *ngIf="studentForm.controls.dept.errors?.required">Department is Required</span>
+      <span *ngIf="studentForm.controls.dept.errors?.minLength">Minimum 2 character of Department is Required</span>
+      <span *ngIf="studentForm.controls.dept.errors?.maxLength">Maximum 50 character is allowed in Department</span>
+    </div> 
+  </div>
+  <div class="col-6 form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+     name="email" formControlName="email">
+     <div *ngIf="studentForm.controls.email.invalid && studentForm.controls.email.touched || studentForm.controls.email.dirty">
+      <span *ngIf="studentForm.controls.email.errors?.required">Email is Required</span>
+      <span *ngIf="studentForm.controls.email.errors?.minLength">Minimum 2 character of Email is Required</span>
+      <span *ngIf="studentForm.controls.email.errors?.maxLength">Maximum 50 character is allowed in Email</span>
+    </div> 
+  </div>
+  <div class="col-6 form-group">
+    <label for="active">isActive</label>
+    <input type="checkbox" id="email"
+     name="active" formControlName="active">     
+  </div>
+</div>
+  <button type="button" class="btn btn-success" (click)="addNewStudent()">Add Student</button>
+  <button type="button" class="btn btn-secondary" (click)="closeStudent()">Close</button>
+</form>
+<div class="container" *ngIf="students.length > 0">
+  <div class="co-12">
+    <h1>Added Student List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>isActive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{student.firstName}}</td>
+          <td>{{student.lastName}}</td>
+          <td>{{student.email}}</td>
+          <td>{{student.active}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
