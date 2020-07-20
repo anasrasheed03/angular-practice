@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-12">
+    <h3>Login</h3>
+<form [formGroup]="registerForm">
+  <span *ngIf="registerError">Error in Registeration</span>
+  <div class="col-6 form-group">
+    <label for="email">Username</label>
+    <input type="text" class="form-control" id="email" placeholder="Enter Username" name="email" formControlName="email">
+    <div *ngIf="registerForm.controls.email.invalid && (registerForm.controls.email.dirty || registerForm.controls.email.touched)">
+      <span *ngIf="registerForm.controls.email.errors?.required">Username is Required</span>
+      <span *ngIf="registerForm.controls.email.errors?.minLength">Minimum 2 character of Username is Required</span>
+      <span *ngIf="registerForm.controls.email.errors?.maxLength">Maximum 50 character is allowed in Username</span>
+    </div>  
+  </div>
+  <div class="col-6 form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" formControlName="password">
+    <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched || registerForm.controls.password.dirty">
+      <span *ngIf="registerForm.controls.password.errors?.required">Password is Required</span>
+      <span *ngIf="registerForm.controls.password.errors?.minLength">Minimum 2 character of Password is Required</span>
+      <span *ngIf="registerForm.controls.password.errors?.maxLength">Maximum 50 character is allowed in Password</span>
+    </div> 
+  </div>
+  <button type="button" class="btn btn-success" (click)="register()">Register</button>
+  <a routerLink="/login">Already Have Account? Click Here</a>
+
+</form>
+  </div>
+</div>

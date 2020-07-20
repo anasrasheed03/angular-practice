@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row" *ngFor="let student of studentList;let index = index">
-    <div class="col-3">First Name: {{student.firstName}}</div>
-    <div class="col-3">Last Name: {{student.lastName}}</div>
-    <div class="col-2">Age: {{student.age}}</div>
-    <div class="col-3">Department: {{student.dept}}</div>
-    <div class="col-1"><button type="button" class="btn btn-primary"> <a routerLink="/studentDetails/{{student.id}}/{{student.age}}">View
+    <div class="col-3">First Name: {{student.first_name}}</div>
+    <div class="col-3">Last Name: {{student.last_name}}</div>
+    <div class="col-2"><img src={{student.avatar}} alt=""></div>
+    <div class="col-3">Email: {{student.email}}</div>
+    <div class="col-1"><button type="button" class="btn btn-primary"> <a routerLink="/studentDetails/{{student.id}}">View
         Details</a></button></div>
     <form *ngIf="viewStudent && index==viewStudentInd">
       <div class="row">

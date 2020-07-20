@@ -2,13 +2,15 @@
   <div class="col-12">
     <h3>Login</h3>
 <form [formGroup]="loginForm">
+  <span *ngIf="loginError">Error in Login</span>
+
   <div class="col-6 form-group">
-    <label for="userName">Username</label>
-    <input type="text" class="form-control" id="userName" placeholder="Enter Username" name="userName" formControlName="userName">
-    <div *ngIf="loginForm.controls.userName.invalid && (loginForm.controls.userName.dirty || loginForm.controls.userName.touched)">
-      <span *ngIf="loginForm.controls.userName.errors?.required">Username is Required</span>
-      <span *ngIf="loginForm.controls.userName.errors?.minLength">Minimum 2 character of Username is Required</span>
-      <span *ngIf="loginForm.controls.userName.errors?.maxLength">Maximum 50 character is allowed in Username</span>
+    <label for="email">Username</label>
+    <input type="text" class="form-control" id="email" placeholder="Enter Username" name="email" formControlName="email">
+    <div *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+      <span *ngIf="loginForm.controls.email.errors?.required">Username is Required</span>
+      <span *ngIf="loginForm.controls.email.errors?.minLength">Minimum 2 character of Username is Required</span>
+      <span *ngIf="loginForm.controls.email.errors?.maxLength">Maximum 50 character is allowed in Username</span>
     </div>  
   </div>
   <div class="col-6 form-group">
@@ -21,7 +23,7 @@
     </div> 
   </div>
   <button type="button" class="btn btn-success" (click)="login()">Login</button>
-
+<a routerLink="/register">Want to Register</a>
 </form>
   </div>
 </div>
