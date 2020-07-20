@@ -4,9 +4,10 @@
     <div class="col-3">Last Name: {{student.last_name}}</div>
     <div class="col-2"><img src={{student.avatar}} alt=""></div>
     <div class="col-3">Email: {{student.email}}</div>
-    <div class="col-1"><button type="button" class="btn btn-primary"> <a routerLink="/studentDetails/{{student.id}}">View
-        Details</a></button></div>
-    <form *ngIf="viewStudent && index==viewStudentInd">
+    <div class="col-1"><button type="button" class="btn btn-primary" (click)="viewStudentDetails(student.id,index)"> View
+        Details</button></div>
+    <app-student-details [studentId]="selectedStudent" *ngIf="viewStudent && index==viewStudentInd" (closeStudentRecord)="closeRecord($event)"></app-student-details>
+    <!-- <form *ngIf="viewStudent && index==viewStudentInd">
       <div class="row">
       <div class="col-6 form-group">
         <label for="firstName">First Name</label>
@@ -33,6 +34,6 @@
       </div>
     </div>
       <button type="button" class="btn btn-secondary" (click)="closeStudent()">Close</button>
-    </form>
+    </form> -->
   </div>
 </div>

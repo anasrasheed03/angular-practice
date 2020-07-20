@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     StudentsComponent,
     StudentFormComponent,
     LoginComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

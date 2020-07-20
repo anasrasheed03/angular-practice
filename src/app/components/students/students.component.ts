@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
-import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-students',
@@ -15,24 +14,19 @@ export class StudentsComponent implements OnInit {
   constructor(private restService:RestService) { }
 
   ngOnInit() {
-    this.getUserList();
-    // this.studentList=[
-      // {id:1,firstName:'Anas',lastName:'Rasheed',age:26,dept:'CS',email:'anas.rasheed@systemsltd.com'},
-      // {id:2,firstName:'Mohammed',lastName:'Umer',age:25,dept:'CE',email:'mohammad.umer@systemsltd.com'},
-      // {id:3,firstName:'Syed',lastName:'Hasnain',age:24,dept:'CIS',email:'syed.hasnain@systemsltd.com'},
-      // {id:4,firstName:'Fazeel',lastName:'Ahmed',age:26,dept:'CS',email:'fazeel.ahmed@systemsltd.com'},
-      // {id:5,firstName:'Mohammed',lastName:'Ali',age:25,dept:'CS',email:'mohammed.ali@systemsltd.com'},
-    // ]
+    this.getUserList();  
   }
   
-  public viewStudentDetails(studentData,index){
+  public viewStudentDetails(studentId,index){
     this.viewStudentInd = index
+    this.selectedStudent = studentId;
     this.viewStudent = true;
-    this.selectedStudent = studentData;
   }
 
-  public closeStudent(){
+  public closeRecord(event:any){
+    if(event == 'true'){
     this.viewStudent=false;
+  }
   }
 
   public getUserList(){
