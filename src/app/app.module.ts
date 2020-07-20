@@ -8,6 +8,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { StudentsComponent } from './components/students/students.component';
 import { StudentFormComponent } from './components/student-form/student-form.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { StudentDetailsComponent } from './components/student-details/student-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { StudentFormComponent } from './components/student-form/student-form.com
     FooterComponent,
     SidebarComponent,
     StudentsComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    LoginComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

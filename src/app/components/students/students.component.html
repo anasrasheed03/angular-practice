@@ -4,8 +4,8 @@
     <div class="col-3">Last Name: {{student.lastName}}</div>
     <div class="col-2">Age: {{student.age}}</div>
     <div class="col-3">Department: {{student.dept}}</div>
-    <div class="col-1"><button type="button" class="btn btn-primary" (click)="viewStudentDetails(student,index)">View
-        Details</button></div>
+    <div class="col-1"><button type="button" class="btn btn-primary"> <a routerLink="/studentDetails/{{student.id}}/{{student.age}}">View
+        Details</a></button></div>
     <form *ngIf="viewStudent && index==viewStudentInd">
       <div class="row">
       <div class="col-6 form-group">

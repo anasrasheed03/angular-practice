@@ -1,3 +1,12 @@
+
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+  <div class="col-4">
+<app-sidebar></app-sidebar>
+</div>
+<div class="col-8">
+<!-- <app-dashboard></app-dashboard> -->
 <h3>{{title}}</h3>
 <h5>Name is: {{printName()}}</h5>
 <h5>Your Email is: {{email}}</h5>
@@ -21,3 +30,13 @@
   </div>
   <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
 </form>
+</div>
+</div>
+<div class="row">
+  <div class="col-12">
+<app-students></app-students>
+<app-student-form></app-student-form>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>
